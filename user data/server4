@@ -1,0 +1,6 @@
+#!/bin/bash
+yum install httpd -y
+service httpd start
+chkconfig httpd on
+mkdir /var/www/html
+echo 'Hey!! This is admin page on EC2!' > /var/www/html/admin
