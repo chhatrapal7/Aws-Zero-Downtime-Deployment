@@ -32,13 +32,13 @@ The project was deployed using the AWS Free Tier for learning purposes. After su
 
 ## Deployment Strategy
 
-*Blue-Green Deployment
+### Blue-Green Deployment
 Version 1 (Villa Website) was deployed on Server-1 and Server-2.
 Version 2 (Coffee Shop Website) was deployed on Server-3 and Server-4.
 Both versions were available simultaneously.
 The ALB Listener was switched from Blue Target Group to Green Target Group without downtime.
 
-*Canary Deployment
+### Canary Deployment
 Traffic was gradually shifted using ALB Weighted Target Groups.
 Example:
 
