@@ -32,13 +32,13 @@ The project was deployed using the AWS Free Tier for learning purposes. After su
 
 ## Deployment Strategy
 
-# Blue-Green Deployment
+Blue-Green Deployment
 Version 1 (Villa Website) was deployed on Server-1 and Server-2.
 Version 2 (Coffee Shop Website) was deployed on Server-3 and Server-4.
 Both versions were available simultaneously.
 The ALB Listener was switched from Blue Target Group to Green Target Group without downtime.
 
-# Canary Deployment
+Canary Deployment
 Traffic was gradually shifted using ALB Weighted Target Groups.
 Example:
 
@@ -49,7 +49,7 @@ After successful testing, traffic was switched completely to the Green Environme
 
 ## SSL & Custom Domain
 
-# This project also demonstrates:
+This project also demonstrates:
 
 Purchased a custom domain
 Created a Hosted Zone in Route 53
@@ -75,14 +75,14 @@ Custom Domain Integration
 
 ## 📸 Screenshots & Proof of Work
 
-# AWS Console
-![Application Load Balancer](./loadbalancer.png)
+AWS Console
+![Application Load Balancer](./screenshot/loadbalancer.png)
 
 
-![Route 53 Hosted Zone & Subdomain](./architecture-diagram.png)
+![Route 53 Hosted Zone & Subdomain](./screenshot/rout53.png)
 
 
-# Application
-![Version 1](./architecture-diagram.png)
+Application
+![Version 1](./screenshot/blue-target-groupweb.png)
 
-![Version 2](./architecture-diagram.png)
+![Version 2](./screenshot/green-target-group web.png)
