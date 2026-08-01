@@ -115,3 +115,22 @@ Custom Domain Integration
 
 
 ![Version 2](./screenshot/green-target-groupweb.png)
+
+
+
+
+## 📝 Notes
+
+- This project was created for learning AWS Blue-Green and Canary Deployment concepts.
+- The infrastructure was deployed using the AWS Free Tier.
+- All AWS resources were removed after testing to avoid unnecessary charges.
+- This project focuses on understanding deployment strategies using Amazon EC2, Application Load Balancer, Route 53, and AWS Certificate Manager (ACM).
+
+## 👨‍💻 Author
+
+**Chhatrapal Janghel**
+
+AWS Cloud & DevOps Engineer
+
+- 🌐 Portfolio: https://chhatrapal.in
+- 💼 LinkedIn: www.linkedin.com/in/chhatrapaljanghel7
