@@ -16,7 +16,7 @@ The project was deployed using the AWS Free Tier for learning purposes. After su
 
 ## 🛠️ AWS Services & Technologies Used
 
-| Service                       | Purpose                                                 |
+| Service / Tools               | Purpose                                                 |
 | ----------------------------- | ------------------------------------------------------- |
 | Amazon EC2                    | Hosted Version 1 and Version 2 websites                 |
 | Application Load Balancer     | Distributed traffic between Blue and Green environments |
@@ -76,7 +76,7 @@ Custom Domain Integration
 ## 📸 Screenshots & Proof of Work
 
 # AWS Console
-![Application Load Balancer](./architecture-diagram.png)
+![Application Load Balancer](./loadbalancer.png)
 
 
 ![Route 53 Hosted Zone & Subdomain](./architecture-diagram.png)
