@@ -73,16 +73,24 @@ Amazon Machine Images (AMI)
 HTTPS Configuration
 Custom Domain Integration
 
-## 📸 Screenshots & Proof of Work
+## Screenshots 
 
-AWS Console
+## AWS Console
+
 ![Application Load Balancer](./screenshot/loadbalancer.png)
+
+
 
 
 ![Route 53 Hosted Zone & Subdomain](./screenshot/rout53.png)
 
 
-Application
+
+
+## Application
+
 ![Version 1](./screenshot/blue-target-groupweb.png)
 
-![Version 2](./screenshot/green-target-group web.png)
+
+
+![Version 2](./screenshot/green-target-groupweb.png)
