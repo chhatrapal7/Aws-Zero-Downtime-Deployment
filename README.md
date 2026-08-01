@@ -47,6 +47,27 @@ Example:
 
 After successful testing, traffic was switched completely to the Green Environment.
 
+
+## 🌍 Real-World Use Case
+
+Zero-downtime deployment strategies are commonly used in production environments where application availability is critical.
+
+### Example Scenario
+
+A company is running an e-commerce website during a major sale. The current application (Version 1) is serving thousands of users.
+
+The development team releases a new version (Version 2) with additional features and bug fixes.
+
+Instead of replacing the old servers directly, the new version is deployed in a separate environment.
+
+- **Blue Environment:** Current production version (Villa Website)
+- **Green Environment:** New application version (Coffee Shop Website)
+
+Initially, a small percentage of users (for example, 10%) is routed to the Green environment using Canary Deployment. If no issues are detected, traffic is gradually increased until 100% of users are served by the new version using Blue-Green Deployment.
+
+This approach minimizes downtime, reduces deployment risk, and provides an easy rollback option if any issue occurs.
+
+
 ## SSL & Custom Domain
 
 This project also demonstrates:
