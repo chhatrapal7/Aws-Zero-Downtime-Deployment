@@ -10,7 +10,7 @@ The project was deployed using the AWS Free Tier for learning purposes. After su
 ---
 
 ## 📐 Architecture Diagram
-![AWS Architecture](./architecture-diagram.png)
+![AWS Architecture](./diagram/Aws-Zero-Downtime-Deployment.png)
 
 ---
 
