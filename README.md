@@ -1,7 +1,11 @@
-# AWS Blue-Green & Canary Deployment Architecture
+# AWS Zero-Downtime Deployment (Blue-Green & Canary)
 
 ## 📌 Project Overview
-This project demonstrates the implementation of **Zero-Downtime Deployment Strategies (Blue-Green & Canary)** on AWS using core infrastructure services. It features secure SSL/TLS communication via AWS Certificate Manager (ACM), custom DNS routing via Route 53, and traffic distribution using Application Load Balancer (ALB).
+This project demonstrates how Blue-Green Deployment and Canary Deployment can be implemented on AWS using Amazon EC2 and Application Load Balancer.
+
+The objective of this project is to understand zero-downtime deployment, SSL/TLS configuration, custom domain integration, and traffic shifting between application versions.
+
+The project was deployed using the AWS Free Tier for learning purposes. After successful testing, the resources were removed to avoid unnecessary AWS charges.
 
 ---
 
@@ -11,43 +15,74 @@ This project demonstrates the implementation of **Zero-Downtime Deployment Strat
 ---
 
 ## 🛠️ AWS Services & Technologies Used
-* **DNS & SSL/TLS:** AWS Route 53, AWS Certificate Manager (ACM)
-* **Load Balancing:** Application Load Balancer (ALB), Target Groups (Blue & Green)
-* **Compute & Auto-Scaling:** EC2, Launch Templates, Auto Scaling Groups (ASG)
-* **Networking & Security:** VPC, Public/Private Subnets, Internet Gateway, Route Tables, Security Groups
-* **Storage & Recovery:** EBS Volumes (Attach/Detach), EBS Snapshots, Custom AMIs
-* **Web Server:** Nginx / Apache (`httpd`)
+
+| Service                       | Purpose                                                 |
+| ----------------------------- | ------------------------------------------------------- |
+| Amazon EC2                    | Hosted Version 1 and Version 2 websites                 |
+| Application Load Balancer     | Distributed traffic between Blue and Green environments |
+| Target Groups                 | Separate routing for Blue and Green servers             |
+| Auto Scaling Launch Template  | Learned EC2 launch template and AMI concepts            |
+| Amazon Machine Image (AMI)    | Created reusable server images                          |
+| AWS Certificate Manager (ACM) | SSL/TLS Certificate                                     |
+| Amazon Route 53               | Custom domain and DNS routing                           |
+| Security Groups               | Allowed HTTP and HTTPS traffic                          |
+| Default VPC                   | Network environment provided by AWS                     |
 
 ---
 
-## 🚀 Key Learning & Implementation Steps
+## Deployment Strategy
 
-### 1. Networking & Security Setup
-* Configured custom VPC with Multi-AZ Subnets (1a & 1b) and Internet Gateway.
-* Set up Security Groups allowing HTTP (80) & HTTPS (443) traffic.
+# Blue-Green Deployment
+Version 1 (Villa Website) was deployed on Server-1 and Server-2.
+Version 2 (Coffee Shop Website) was deployed on Server-3 and Server-4.
+Both versions were available simultaneously.
+The ALB Listener was switched from Blue Target Group to Green Target Group without downtime.
 
-### 2. Domain & SSL/TLS Setup
-* Configured Hosted Zone in **Route 53**.
-* Requested a Public Wildcard Certificate in **AWS Certificate Manager (ACM)** and validated DNS records.
-* Attached the HTTPS (443) Listener on ALB backed by the ACM SSL Certificate.
+# Canary Deployment
+Traffic was gradually shifted using ALB Weighted Target Groups.
+Example:
 
-### 3. Application Versioning (Blue vs. Green)
-* **Blue Environment (v1):** Launched Server-1 & Server-2 attached to `Blue-TG`.
-* **Green Environment (v2):** Launched Server-3 & Server-4 attached to `Green-TG`.
-* Configured `/index.html` health checks with HTTP 200 responses.
+90% → Blue Environment
+10% → Green Environment
 
-### 4. Deployment Strategies Executed
-* **Blue-Green Deployment:** Re-routed 100% traffic from `Blue-TG` (0%) to `Green-TG` (100%) at the ALB listener level with zero downtime.
-* **Canary Testing:** Configured Weighted Target Groups (e.g., 90% Blue / 10% Green) to validate Version 2 with real users before full rollout.
+After successful testing, traffic was switched completely to the Green Environment.
 
-### 5. Storage & Disaster Recovery Practices
-* Created EBS Snapshots and restored new Volumes across EC2 instances.
-* Tested Cross-Instance volume attaching/detaching and custom AMI creation.
+## SSL & Custom Domain
 
----
+# This project also demonstrates:
+
+Purchased a custom domain
+Created a Hosted Zone in Route 53
+Configured DNS records
+Requested a Public SSL Certificate from ACM
+Validated the certificate using DNS
+Attached HTTPS Listener (443) to the Application Load Balancer
+
+
+## What I Learned
+Amazon EC2
+Security Groups
+Application Load Balancer
+Target Groups
+Blue-Green Deployment
+Canary Deployment
+Route 53
+AWS Certificate Manager (ACM)
+Launch Templates
+Amazon Machine Images (AMI)
+HTTPS Configuration
+Custom Domain Integration
 
 ## 📸 Screenshots & Proof of Work
-*(Add your AWS console screenshots here)*
-* SSL Certificate Validation in ACM
-* ALB Listener Rules (Weighted Target Groups)
-* Version 1 (Blue) vs Version 2 (Green) browser outputs
+
+# AWS Console
+![Application Load Balancer](./architecture-diagram.png)
+
+
+![Route 53 Hosted Zone & Subdomain](./architecture-diagram.png)
+
+
+# Application
+![Version 1](./architecture-diagram.png)
+
+![Version 2](./architecture-diagram.png)
