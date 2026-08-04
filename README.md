@@ -132,5 +132,4 @@ Custom Domain Integration
 
 AWS Cloud & DevOps Engineer
 
-- 🌐 Portfolio: https://chhatrapal.in
 - 💼 LinkedIn: www.linkedin.com/in/chhatrapaljanghel7
